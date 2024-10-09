@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 import java.util.List;
 
@@ -14,7 +13,9 @@ public class Main {
             machine = new Turing(fileName);
             outputs = machine.run(true);
             System.out.println(outputs);
-            System.out.println("The turing machine has " + machine.getTapesNumber() + " tapes");
+            System.out.println("The Turing machine has " + machine.getTapesNumber() + " tapes");
+            //System.out.println("Time complexity: " + machine.timeComplexity(fileName));
+            System.out.println("Space complexity: " + machine.spaceComplexity(fileName));
         } catch (IOException | TuringException e) {
             System.out.println(e);
         }

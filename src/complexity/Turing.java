@@ -345,6 +345,30 @@ public class Turing {
         }
     }
 
+    public int spaceComplexity(String fileName) {
+        Set<String> uniqueSymbols = new HashSet<>();
+        boolean isFirstLine = true;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (isFirstLine) {
+                    isFirstLine = false;
+                    continue;
+                }
+                line = line.trim();
+                if (!line.isEmpty()) {
+                    String symbol = line.split(";")[0].trim();
+                    uniqueSymbols.add(symbol);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        }
+
+        return uniqueSymbols.size();
+    }
+
     /**
      * This exception may be thrown by:
      * <ul>
