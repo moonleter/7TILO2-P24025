@@ -5,14 +5,6 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
-/**
- * A Bulk is a structure which can handle n-tuple. An n-tuple is a finite ordered sequence of n elements, where n is a non-negative integer.
- *
- * @author Mirko Alicastro
- * @version 1.2
- * @link https://github.com/mirkoalicastro/turing
- */
-
 public class Bulk implements Iterable<Object> {
     private final Object[] elements;
 
