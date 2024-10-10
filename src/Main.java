@@ -1,3 +1,4 @@
+
 import java.io.IOException;
 import java.util.List;
 
@@ -6,16 +7,23 @@ import complexity.Turing.TuringException;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        String fileName = "src//complexity//homeWork02";
+        String fileName = "src//complexity//main-homeWork02";
         Turing machine;
         List<Turing.Output> outputs;
+
         try {
             machine = new Turing(fileName);
             outputs = machine.run(true);
             System.out.println(outputs);
-            System.out.println("The Turing machine has " + machine.getTapesNumber() + " tapes");
-            //System.out.println("Time complexity: " + machine.timeComplexity(fileName));
-            System.out.println("Space complexity: " + machine.spaceComplexity(fileName));
+
+            if (!outputs.isEmpty()) {
+                String specificOutput = outputs.getLast().tapes[machine.getTapesNumber() - 1];
+                System.out.println("Final Output is: " + specificOutput);
+            }
+
+            System.out.println("The turing machine has " + machine.getTapesNumber() + " tapes");
+            System.out.println("Time Complexity: " + machine.getStepCount());
+            System.out.println("Space Complexity: " + machine.getTotalWrittenCells());
         } catch (IOException | TuringException e) {
             System.out.println(e);
         }
